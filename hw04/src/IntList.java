@@ -159,6 +159,11 @@ public class IntList {
      */
     public void addLast(int x) {
         // Optional: Fill in this code
+        IntList p = this;
+        while (p.rest != null) {
+            p = p.rest;
+        }
+        p.rest = new IntList(x, null);
     }
 
     /**
@@ -169,5 +174,8 @@ public class IntList {
      */
     public void addFirst(int x) {
         // Optional: Fill in this code
+        IntList old = new IntList(this.first, this.rest);
+        this.first = x;
+        this.rest = old;
     }
 }
